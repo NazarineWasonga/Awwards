@@ -40,3 +40,11 @@ Admin should:
 | To search projects by title | **Enter text in search bar** | Users can search by Project Title|
 | Comment on projects | **Add comments below respective project** | Users can add comments on any project|
 | Vote on projects | **vote** | Users can review projects they like and comment|
+
+
+## SetUp / Installation Requirements
+### Prerequisites
+* python3.7
+* pip
+* virtualenv
+* Requirements.txt
