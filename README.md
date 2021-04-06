@@ -55,4 +55,19 @@ Admin should:
         $ git clone https://github.com/NazarineWasonga/Awwards
         $ cd Awwards
 
+## Running the Application
+* Creating the virtual environment
+
+        $ python3 -m venv --without-pip virtual
+        $ source virtual/bin/activate
+        $ curl https://bootstrap.pypa.io/get-pip.py | python
+
+* Installing Django and other Modules
+
+        $ see Requirements.txt
+
+* To run the application, in your terminal:
+
+        $ python3.6 manage.py runserver
+
         
