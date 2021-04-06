@@ -16,3 +16,13 @@ Users would like to:
 * Must be signed up to vote
 * See averages for the three grading criterias
 * Grade Projects.
+
+
+## Admin Abilities
+These are the behaviours/features that the application implements for use by the admin.
+
+Admin should:
+* Sign in to the application
+* Add, Edit and Delete projects
+* Delete projects
+* Manage the application.
