@@ -1,0 +1,201 @@
+{% load bootstrap4 %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+    <!-- fonts -->
+
+</head>
+
+<body>
+
+    <div id="navbar navbar-default navbar-fixed-top" class="container-fluid">
+        <div clas>
+            <div class="row">
+                <div class="col-md-1" style="padding-top:15px; border-right:1px solid rgb(226, 225, 225); font-family: 'Encode Sans Expanded', sans-serif;">
+                    <div class="">
+                        <div id="mySidenav" class="sidenav">
+                            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> CLOSE &times;</a>
+                            <li class="dropdown-divider"></li>
+                            <a href="/accounts/register/">Register / Login</a>
+                            <li class="dropdown-divider"></li>
+                            <a href="{%url 'home'%}">Home</a>
+                            <li class="dropdown-divider"></li>
+                            <a href="#">Winners</a>
+                            <li class="dropdown-divider"></li>
+                            <a href="#">Nominees</a>
+                            <li class="dropdown-divider"></li>
+                            <a href="#">Collections</a>
+                            <li class="dropdown-divider"></li>
+                            <a href="#">Professional</a>
+                            <li class="dropdown-divider"></li>
+                            <a href="#">Jobs & Talent</a>
+                            <li class="dropdown-divider"></li>
+                            <a href="#">Blog</a>
+                            <li class="dropdown-divider"></li>
+                            <a href="#">eBOOKS & Publications</a>
+                            <li class="dropdown-divider"></li>
+                            <a href="#">About us</a>
+                            <li class="dropdown-divider"></li>
+                            <a href="#">Conferences</a>
+                            <br><br>
+                            <h5>Activate black option</h5>
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                        <div id="main">
+                            <span style="cursor:pointer" onclick="openNav()">&#9776; MENU</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-8" style=" padding-top:5px;text-align:center;font-family: 'Comfortaa', cursive; letter-spacing:2px;">
+
+                    <div class="row">
+
+                        <div class="col-md-10">
+
+                            <a class="navbar-brand" href="{%url 'home'%}" style="font-size:30px; color:black;"><strong
+                                    style="text-align:center">awwwards.</strong>
+                            </a>
+
+                        </div>
+                        <div class="col-md-2" style="padding-top:10px;">
+                            <div class="row">
+                                <div class="col-md-6" style="padding-top:5px;">
+                                    <a href="" style="font-size:13px;">{{ user.username }}</a>
+                                </div>
+                                <div class="col-md-6">
+                                    {% if request.user.is_authenticated %}
+                                    <div class="dropdown">
+                                        <a class="btn btn dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown"
+                                            aria-haspopup="true" aria-expanded="false"><span style="cursor:pointer">&#9776;</span>
+                                        </a>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">Activity</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">Collections</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">Notifications</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">Settings</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="/accounts/login/">Logout <img style="width: 20px; float: right;"
+                                                    src="https://image.flaticon.com/icons/png/512/126/126467.png" alt=""></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% else %}
+                                <a class='btn btn-default' href="/accounts/login">Login</a>
+                                {% endif %}
+                            </div>
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div class="col-md-2" style="padding-top:15px; background-color: #49c5b6; text-align:center">
+                    <a href="{%url 'new-post'%}" style="color:white; font-size:14px; text-decoration: none; ">SUBMIT
+                        YOUR
+                        SITE!
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<style>
+    .switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+</style>
+
+<script type="text/javascript">
+
+    var button = document.querySelector(".slider");
+    var isColored = false;
+
+    button.addEventListener("click", function () {
+        if (isColored) {
+            document.body.style.background = "white";
+            isColored = false;
+        } else {
+            document.body.style.background = "#848B85";
+            isColored = true;
+        }
+    });
+
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+    }
+</script>
+
+</html>

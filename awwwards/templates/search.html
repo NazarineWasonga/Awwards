@@ -1,0 +1,30 @@
+{%extends 'base.html'%}
+{% load bootstrap3 %}
+{% block content %}
+<div class="container">
+
+    <div class="row">
+        {% if projects%}
+        <h2>Found {{ projects|length }} of searched term {{message}}</h2>
+        {% else %}
+        <h2> Found 0 projects for the search term {{message}}</h2>
+        {% endif %}
+
+    </div>
+
+    <div class="row">
+
+        {% if projects %}
+        {% for project in projects %}
+
+        <div class="col-md-4" style="margin-bottom:5vh;">
+            <h4><span class="badge" style="background-color:#900C3F;-moz-border-radius:28px;-webkit-border-radius:28px;" >Project: {{project.title}}</span></h4>
+            <img class="img-fluid top-space" style="width:85%;height:85%;object-fit:cover;" src="{{ project.image.url }}"
+                alt="{{ project.image.url }}" data-toggle="modal" data-target="#{{image.id}}">
+            <h6>{{project.description}}</h6>
+        </div>
+        {% endfor %}
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

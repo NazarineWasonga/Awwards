@@ -1,0 +1,38 @@
+{% extends "registration/base.html" %}
+{% load static %}
+
+{% block content %}
+
+<div class="container">
+
+    <form id="my-form" action="{% url 'add_review' post_id=project.id %} " method="POST">
+        {% csrf_token %}
+
+        <fieldset class="rating">
+            <legend>Please rate:</legend>
+            <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Sucks big time">1 star</label>
+            <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Kinda bad">2 stars</label>
+            <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Meh">3 stars</label>
+            <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Pretty good">4 stars</label>
+            <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Rocks!">5 stars</label>
+        </fieldset>
+        <div class="row">
+            <div class="form-group col-md-12">
+                <textarea name="comment" placeholder="Enter comment" class="form-control" id=""></textarea>
+            </div>
+        </div>
+        <button type="submit" class="btn send-form">Send..</button>
+    </form>
+
+</div>
+<div class="gallery">
+    <h5>{{ project.review_set.count }} reviews ({{ project.average_rating | floatformat }} average rating)</h5>
+    <p>{{project.comment}}</p>
+</div>
+{% for review in project.review_set.all %}
+<div>
+    <em>{{ review.comment }}</em>
+    <h6>Rated {{ review.rating }} of 5 by {{ review.user_name }}</h6>
+</div>
+{% endfor %}
+{% endblock %}
