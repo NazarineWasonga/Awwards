@@ -48,3 +48,11 @@ Admin should:
 * pip
 * virtualenv
 * Requirements.txt
+
+### Cloning
+* In your terminal:
+
+        $ git clone https://github.com/NazarineWasonga/Awwards
+        $ cd Awwards
+
+        
