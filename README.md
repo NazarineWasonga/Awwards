@@ -43,7 +43,7 @@ Admin should:
 
 ## Application link
 
-click [here] (https://awwwardy.herokuapp.com/)
+click [here](https://awwwardy.herokuapp.com/)
 
 ## SetUp / Installation Requirements
 ### Prerequisites
