@@ -85,7 +85,7 @@ click [here](https://awwwardy.herokuapp.com/)
 
 ## License
 
-Copyright (c) 2021 NazarineWasonga
+Copyright (c) 2024 NazarineWasonga
 
 ------------
 
